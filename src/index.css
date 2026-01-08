@@ -1,0 +1,171 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #141219;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', system-ui, sans-serif;
+}
+
+/* Typography Classes */
+.text-hero-title {
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 68.25px;
+  letter-spacing: 0px;
+}
+
+.text-title {
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+
+.text-subtitle {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+}
+
+.text-body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+.text-button {
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #DFEEFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3E6EB4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1E1C26;
+}
+
+/* Background pattern */
+.bg-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(62, 110, 180, 0.1) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #3E6EB4 0%, #DFEEFC 100%);
+}
+
+.gradient-orange {
+  background: linear-gradient(135deg, #CD6028 0%, #DFEEFC 100%);
+}
+
+/* Wave background */
+.wave-bg {
+  position: relative;
+}
+
+.wave-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f0f7ff' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E") no-repeat top center;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* Dot pattern */
+.dot-pattern {
+  position: relative;
+}
+
+.dot-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 8px);
+  gap: 8px;
+}
+
+.dot-grid span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(30, 58, 138, 0.2);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-primary text-white font-medium rounded-lg transition-all duration-300 hover:bg-primary-dark hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-secondary text-white font-medium rounded-lg transition-all duration-300 hover:bg-secondary-dark hover:shadow-lg;
+}
+
+.btn-outline {
+  @apply px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg transition-all duration-300 hover:bg-primary hover:text-white;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
