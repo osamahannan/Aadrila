@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedSection from '../../components/AnimatedSection'
 import blueBackground from '../../assets/images/blue-background.png'
-import licenseImg from '../../assets/images/license.png'
+import licenseImg from '../../assets/images/License.png'
 import docImg from '../../assets/images/doc.png'
 import invoiceImg from '../../assets/images/Invocie.png'
 
