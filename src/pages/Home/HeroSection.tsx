@@ -249,7 +249,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center min-h-[calc(100vh-140px)]">
           {/* Left Content */}
           <div className="space-y-4 md:space-y-6 text-center lg:text-left">
-            <AnimatedSection direction="up" delay={0.1}>
+            <AnimatedSection direction="left" delay={0.1}>
               <h1 className="font-heading leading-[1.15]">
                 <span 
                   className="text-[28px] sm:text-[36px] md:text-[48px] font-bold block bg-clip-text text-transparent"
@@ -262,7 +262,7 @@ const HeroSection = () => {
               </h1>
             </AnimatedSection>
 
-            <AnimatedSection direction="up" delay={0.2}>
+            <AnimatedSection direction="left" delay={0.2}>
               <p className="text-[16px] md:text-[20px] text-[#1E1C26] max-w-[536px] mx-auto lg:mx-0 leading-relaxed font-body">
                 Enhance security, accuracy, and efficiency with our
                 cutting-edge AI solutions for seamless document
@@ -270,7 +270,7 @@ const HeroSection = () => {
               </p>
             </AnimatedSection>
 
-            <AnimatedSection direction="up" delay={0.3}>
+            <AnimatedSection direction="left" delay={0.3}>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 pt-[10px] justify-center lg:justify-start">
                 <button className="w-full sm:w-auto min-w-[200px] md:min-w-[250px] py-3 md:py-4 bg-[#3E6EB4] text-white text-button rounded-full transition-all duration-300 hover:bg-[#3E6EB4]/90 hover:shadow-lg">
                   Get a Demo
