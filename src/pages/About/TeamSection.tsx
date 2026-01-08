@@ -22,7 +22,7 @@ const teamImages: Record<number, string> = {
 type AnimationState = 'idle' | 'circle-in' | 'content-in' | 'visible' | 'content-out' | 'circle-out'
 
 const TeamSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0) // Start at first member
+  const [activeIndex, setActiveIndex] = useState(1)
   const [isAnimating, setIsAnimating] = useState(false)
   const [isMobileView, setIsMobileView] = useState(false)
   
@@ -271,12 +271,7 @@ const TeamSection = () => {
                 const isCenter = relativePos === 0
                 
                 // Responsive values based on screen size
-                // Mobile: smaller sizes and gaps
-                // Desktop: original sizes
-                
-                // Calculate horizontal position based on relative position
-                // Desktop: Center item is 250px wide, side items are 140px wide
-                // Mobile: Center item is 150px wide, side items are 80px wide
+
                 const centerHalf = isMobileView ? 75 : 130
                 const sideHalf = isMobileView ? 40 : 70
                 const gap = isMobileView ? 30 : 80
