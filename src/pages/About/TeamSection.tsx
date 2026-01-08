@@ -9,30 +9,14 @@ import leftArrowWhite from '../../assets/icons/arrow-left-white.png'
 import leftArrowBlack from '../../assets/icons/arrow-left-black.png'
 import rightArrowWhite from '../../assets/icons/arrow-right-white.png'
 import rightArrowBlack from '../../assets/icons/arrow-right-black.png'
+import { TEAM_MEMBERS } from '../../constants'
 
-const teamMembers = [
-  {
-    id: 1,
-    name: 'MANSI SHUKLA',
-    role: 'CEO FutureSphere',
-    image: profilePic1,
-    quote: 'For this time-constrained generation in a NOW economy, we would want to play our parts. We intend to make Banking not feel out of place.',
-  },
-  {
-    id: 2,
-    name: 'MANSI SHUKLA',
-    role: 'CEO FutureSphere',
-    image: profilePic2,
-    quote: 'For this time-constrained generation in a NOW economy, we would want to play our parts. We intend to make Banking not feel out of place.',
-  },
-  {
-    id: 3,
-    name: 'MANSI SHUKLA',
-    role: 'CEO FutureSphere',
-    image: profilePic3,
-    quote: 'For this time-constrained generation in a NOW economy, we would want to play our parts. We intend to make Banking not feel out of place.',
-  },
-]
+// Map team member IDs to images
+const teamImages: Record<number, string> = {
+  1: profilePic1,
+  2: profilePic2,
+  3: profilePic3,
+}
 
 // Animation states
 type AnimationState = 'idle' | 'circle-in' | 'content-in' | 'visible' | 'content-out' | 'circle-out'
@@ -99,7 +83,7 @@ const TeamSection = () => {
   }, [animationState])
 
   const isAtStart = activeIndex === 0
-  const isAtEnd = activeIndex === teamMembers.length - 1
+  const isAtEnd = activeIndex === TEAM_MEMBERS.length - 1
 
   const handlePrev = () => {
     if (isAnimating || isAtStart) return
@@ -282,7 +266,7 @@ const TeamSection = () => {
           {/* Team Members Carousel - All profiles visible, positioned horizontally */}
           <div className="relative min-h-[450px] md:min-h-[550px] lg:min-h-[600px]">
             <div className="flex justify-center items-start pt-4 md:pt-8">
-              {teamMembers.map((member, index) => {
+              {TEAM_MEMBERS.map((member, index) => {
                 const relativePos = getRelativePosition(index)
                 const isCenter = relativePos === 0
                 
@@ -357,7 +341,7 @@ const TeamSection = () => {
                       }`}
                     >
                       <img
-                        src={member.image}
+                        src={teamImages[member.id]}
                         alt={member.name}
                         className="w-full h-full object-cover"
                       />

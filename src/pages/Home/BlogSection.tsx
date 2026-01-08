@@ -4,27 +4,7 @@ import { DotGridV1, DotGridV2 } from '../../components/DotGrid'
 import gradientShape from '../../assets/images/grdient-shape.png'
 import leftArrow from '../../assets/icons/arrow-left-white.png'
 import rightArrow from '../../assets/icons/arrow-right-white.png'
-
-const blogPosts = [
-  {
-    id: 1,
-    title: 'How AI is Revolutionizing Document Management for Enterprises',
-    date: '24 July, 2023',
-    excerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and...',
-  },
-  {
-    id: 2,
-    title: 'Top 5 Fraud Prevention Strategies for Financial Institutions',
-    date: '24 July, 2023',
-    excerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and...',
-  },
-  {
-    id: 3,
-    title: 'The Future of OCR: From Basic Extraction to AI-Driven Intelligence',
-    date: '24 July, 2023',
-    excerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and...',
-  },
-]
+import { BLOG_POSTS } from '../../constants'
 
 // Animation states
 type AnimationState = 'idle' | 'title-in' | 'content-in' | 'visible' | 'content-out' | 'title-out'
@@ -127,7 +107,7 @@ const BlogSection = () => {
           <div className="hidden lg:block absolute right-[-85px] top-0">
             <DotGridV2 animation="right" delay={0.2} />
           </div>
-          {blogPosts.map((post, index) => (
+          {BLOG_POSTS.map((post, index) => (
             <div
               key={post.id}
               className="relative pb-12 md:pb-16"

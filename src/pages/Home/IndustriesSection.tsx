@@ -5,39 +5,14 @@ import circleShape from '../../assets/images/circle-left.png'
 import insuranceIcon from '../../assets/images/Insurance_Icon.png'
 import lendingIcon from '../../assets/images/Lending_Icon.png'
 import healthcareIcon from '../../assets/images/Healthcare_Icon.png'
+import { INDUSTRIES } from '../../constants'
 
-const industries = [
-  {
-    id: 'insurance',
-    title: 'Insurance',
-    description: 'Automate claims processing with accurate document validation.',
-    icon: insuranceIcon,
-    // Position: bottom-left
-    initialPosition: { x: 400, y: -50, opacity: 0 },
-    finalPosition: { x: 0, y: 180 },
-    delay: 0.6,
-  },
-  {
-    id: 'lending',
-    title: 'Lending',
-    description: 'Ensure faster loan approvals with fraud detection and instant verification.',
-    icon: lendingIcon,
-    // Position: center
-    initialPosition: { x: 200, y: -150, opacity: 0 },
-    finalPosition: { x: 0, y: 0 },
-    delay: 0.3,
-  },
-  {
-    id: 'healthcare',
-    title: 'Healthcare',
-    description: 'Streamline patient record management and ensure compliance with HIPAA standards.',
-    icon: healthcareIcon,
-    // Position: top-right
-    initialPosition: { x: 200, y: -350, opacity: 0 },
-    finalPosition: { x: 0, y: -180 },
-    delay: 0,
-  },
-]
+// Map industry IDs to icons
+const industryIcons: Record<string, string> = {
+  insurance: insuranceIcon,
+  lending: lendingIcon,
+  healthcare: healthcareIcon,
+}
 
 // Animation states: 'idle' -> 'circle-in' -> 'content-in' -> 'visible' -> 'content-out' -> 'circle-out' -> 'idle'
 type AnimationState = 'idle' | 'circle-in' | 'content-in' | 'visible' | 'content-out' | 'circle-out'
@@ -211,7 +186,7 @@ const IndustriesSection = () => {
 
         {/* Industries Cards - Animate after circle */}
         <div className="relative flex flex-col md:flex-row flex-wrap justify-center lg:justify-between items-center md:items-start gap-6 md:gap-8 lg:gap-4 pt-6 md:pt-10">
-          {industries.map((industry) => (
+          {INDUSTRIES.map((industry) => (
             <motion.div
               key={industry.id}
               className="relative"
@@ -228,7 +203,7 @@ const IndustriesSection = () => {
             >
               <div className="w-[260px] h-[260px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] bg-white rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] p-6 md:p-8 flex flex-col gap-3 md:gap-4 items-center justify-center text-center hover:shadow-xl transition-shadow duration-300">
                 <div className="w-12 h-12 md:w-16 md:h-16">
-                  <img src={industry.icon} alt={industry.title} className="w-full h-full object-contain" />
+                  <img src={industryIcons[industry.id]} alt={industry.title} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-[20px] md:text-[24px] font-semibold text-[#141219] font-heading">
                   {industry.title}

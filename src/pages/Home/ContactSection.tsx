@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import AnimatedSection from '../../components/AnimatedSection'
 import { DotGridV2 } from '../../components/DotGrid'
 import locationIcon from '../../assets/icons/location-icon.png'
+import { OFFICE_LOCATIONS, FOOTER_INFO, SECTION_HEADERS, CONTACT_FORM_FIELDS } from '../../constants'
 
 const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -27,45 +28,32 @@ const ContactSection = () => {
               <div className="space-y-6 md:space-y-8 pb-8 md:pb-48">
                 <div className='max-w-[536px] mx-auto lg:mx-0 text-center lg:text-left'>
                   <h2 className="text-[32px] md:text-[48px] font-semibold text-[#141219] font-heading mb-3 md:mb-4">
-                    Contact Us
+                    {SECTION_HEADERS.contact.title}
                   </h2>
                   <p 
                     className="text-[16px] md:text-[20px] leading-relaxed font-body bg-clip-text text-transparent"
                     style={{ backgroundImage: 'linear-gradient(90deg, #CD6028 11%, #3E6EB4 100%)' }}
                   >
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's.
+                    {SECTION_HEADERS.contact.subtitle}
                   </p>
                 </div>
 
                 {/* Office Locations */}
                 <div className="space-y-4 md:space-y-6 pt-2 md:pt-4">
-                  <div className="flex items-start gap-3 text-left">
-                    <div className="w-[11px] h-4 mt-1.5 flex-shrink-0">
-                      <img src={locationIcon} alt="location-icon" />
+                  {OFFICE_LOCATIONS.map((office) => (
+                    <div key={office.id} className="flex items-start gap-3 text-left">
+                      <div className="w-[11px] h-4 mt-1.5 flex-shrink-0">
+                        <img src={locationIcon} alt="location-icon" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-[#141219] text-[14px] md:text-[16px] underline font-heading">{office.title}</h4>
+                        <p className="text-[#000000] text-[12px] md:text-[14px] mt-1 leading-relaxed font-body">
+                          {office.company}<br />
+                          {office.address}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-[#141219] text-[14px] md:text-[16px] underline font-heading">U.S. Office</h4>
-                      <p className="text-[#000000] text-[12px] md:text-[14px] mt-1 leading-relaxed font-body">
-                        Aadrila Technologies INC,<br />
-                        8 The Green, Ste R, in the City of Dover County of Kent Zip Code 19901.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 text-left">
-                    <div className="w-[11px] h-4 mt-1.5 flex-shrink-0">
-                      <img src={locationIcon} alt="location-icon" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[#141219] text-[14px] md:text-[16px] underline font-heading">India Office</h4>
-                      <p className="text-[#000000] text-[12px] md:text-[14px] mt-1 leading-relaxed font-body">
-                        Aadrila Technologies Private Limited,<br />
-                        Unit 707, Lotus Trade Centre, Sahakar Nagar, New Link Road, Near D.N.Nagar, Andheri<br className="hidden md:block" />
-                        West, Mumbai, Maharashtra 400053.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </AnimatedSection>
@@ -78,12 +66,12 @@ const ContactSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                       <input
                         type="text"
-                        placeholder="Full Name"
+                        placeholder={CONTACT_FORM_FIELDS.fullName}
                         className="w-full px-4 py-3.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E6EB4]/20 focus:border-[#3E6EB4] transition-colors text-[15px] placeholder:text-gray-400 font-body"
                       />
                       <input
                         type="email"
-                        placeholder="Email"
+                        placeholder={CONTACT_FORM_FIELDS.email}
                         className="w-full px-4 py-3.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E6EB4]/20 focus:border-[#3E6EB4] transition-colors text-[15px] placeholder:text-gray-400 font-body"
                       />
                     </div>
@@ -91,24 +79,24 @@ const ContactSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                       <input
                         type="tel"
-                        placeholder="Phone Number"
+                        placeholder={CONTACT_FORM_FIELDS.phone}
                         className="w-full px-4 py-3.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E6EB4]/20 focus:border-[#3E6EB4] transition-colors text-[15px] placeholder:text-gray-400 font-body"
                       />
                       <input
                         type="text"
-                        placeholder="Company Name"
+                        placeholder={CONTACT_FORM_FIELDS.company}
                         className="w-full px-4 py-3.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E6EB4]/20 focus:border-[#3E6EB4] transition-colors text-[15px] placeholder:text-gray-400 font-body"
                       />
                     </div>
 
                     <input
                       type="text"
-                      placeholder="Inquiry Type"
+                      placeholder={CONTACT_FORM_FIELDS.inquiryType}
                       className="w-full px-4 py-3.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E6EB4]/20 focus:border-[#3E6EB4] transition-colors text-[15px] placeholder:text-gray-400 bg-white font-body"
                     />
 
                     <textarea
-                      placeholder="Message"
+                      placeholder={CONTACT_FORM_FIELDS.message}
                       rows={10}
                       className="w-full px-4 py-3.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E6EB4]/20 focus:border-[#3E6EB4] transition-colors resize-none text-[15px] placeholder:text-gray-400 font-body"
                     />
@@ -117,7 +105,7 @@ const ContactSection = () => {
                       type="submit"
                       className="w-full py-3 md:py-4 bg-[#3E6EB4] text-white text-button rounded-full transition-all duration-300 hover:bg-[#3E6EB4]/90 hover:shadow-lg"
                     >
-                      Send Inquiry
+                      {CONTACT_FORM_FIELDS.submitButton}
                     </button>
                   </form>
                 </div>
@@ -142,11 +130,11 @@ const ContactSection = () => {
           {/* Copyright and Company Info */}
           <div className="space-y-3 md:space-y-4 text-center lg:text-left">
             <p className="text-[12px] md:text-[14px] text-white font-body">
-              © 2025 by Aadrila Technologies Private Limited CIN U74999UP2017PTC094688
+              {FOOTER_INFO.copyright}
             </p>
             <div className="text-[12px] md:text-[14px] text-white leading-relaxed font-body">
-              <p>Registered Address: B-1, 127/K, Sector- K Aliganj, Lucknow, Lucknow,</p>
-              <p>Uttar Pradesh, India. 226024</p>
+              <p>{FOOTER_INFO.registeredAddress.line1}</p>
+              <p>{FOOTER_INFO.registeredAddress.line2}</p>
             </div>
           </div>
         </div>

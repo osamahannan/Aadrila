@@ -2,6 +2,7 @@ import AnimatedSection from '../../components/AnimatedSection'
 import lightBlueBackground from '../../assets/images/light-blue-background.svg'
 import visionIcon from '../../assets/images/Vision_Icon.png'
 import missionIcon from '../../assets/images/Mission_Icon.png'
+import { ABOUT_CONTENT } from '../../constants'
 
 const AboutHeroSection = () => {
   return (
@@ -21,13 +22,13 @@ const AboutHeroSection = () => {
           {/* Title Card */}
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl py-6 md:py-10 px-6 md:px-16 inline-block border border-gray-200/50 shadow-[0_4px_30px_rgba(0,0,0,0.05)]">
             <h1 className="text-[28px] md:text-[48px] font-semibold text-[#141219] mb-3 md:mb-4">
-              About Us
+              {ABOUT_CONTENT.hero.title}
             </h1>
             <p 
               className="text-[16px] md:text-[20px] font-body bg-clip-text text-transparent"
               style={{ backgroundImage: 'linear-gradient(90deg, #CD6028 11%, #3E6EB4 100%)' }}
             >
-              Meet the Minds Shaping Document Automation.
+              {ABOUT_CONTENT.hero.subtitle}
             </p>
           </div>
         </AnimatedSection>
@@ -39,8 +40,7 @@ const AboutHeroSection = () => {
             <div className="flex justify-center lg:justify-start">
               <div className="bg-white/60 lg:max-w-none lg:min-w-[849px] backdrop-blur-sm rounded-2xl lg:rounded-r-full lg:rounded-l-none py-4 md:py-3 px-4 md:pl-8 md:pr-3 border border-gray-200/50 lg:border-l-0 shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex flex-col lg:flex-row justify-center lg:justify-end items-center gap-4 md:gap-6">
                 <p className="text-[#1E1C26]/70 text-[13px] md:text-[14px] leading-relaxed max-w-sm text-center lg:text-right font-body order-3 lg:order-1">
-                  To redefine document management with cutting-edge technology that
-                  ensures accuracy, efficiency, and trust.
+                  {ABOUT_CONTENT.vision.description}
                 </p>
                 <div className="flex items-center gap-3 md:gap-4 order-2">
                   <div className="h-10 md:h-12 w-[3px] bg-[#CD6028]" />
@@ -77,8 +77,7 @@ const AboutHeroSection = () => {
                   <div className="h-10 md:h-12 w-[3px] bg-[#CD6028]" />
                 </div>
                 <p className="text-[#1E1C26]/70 text-[13px] md:text-[14px] leading-relaxed max-w-sm text-center lg:text-left font-body order-3">
-                  To redefine document management with cutting-edge technology that
-                  ensures accuracy, efficiency, and trust.
+                  {ABOUT_CONTENT.mission.description}
                 </p>
               </div>
             </div>

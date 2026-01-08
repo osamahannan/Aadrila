@@ -5,25 +5,13 @@ import blueBackground from '../../assets/images/blue-background.png'
 import licenseImg from '../../assets/images/License.png'
 import docImg from '../../assets/images/doc.png'
 import invoiceImg from '../../assets/images/Invocie.png'
+import { HERO_DOCUMENTS, CAROUSEL_POSITIONS } from '../../constants'
 
-const documents = [
-  { id: 0, src: invoiceImg, alt: 'Invoice' },
-  { id: 1, src: licenseImg, alt: 'Driver License' },
-  { id: 2, src: docImg, alt: 'Document with chart' },
-]
-
-// Position configurations for the carousel (desktop)
-const desktopPositions = {
-  left: { x: -245, scale: 0.55, zIndex: 10, opacity: 1 },
-  center: { x: 0, scale: 1.1, zIndex: 30, opacity: 1 },
-  right: { x: 245, scale: 0.55, zIndex: 10, opacity: 1 },
-}
-
-// Position configurations for mobile
-const mobilePositions = {
-  left: { x: -120, scale: 0.5, zIndex: 10, opacity: 0.8 },
-  center: { x: 0, scale: 1, zIndex: 30, opacity: 1 },
-  right: { x: 120, scale: 0.5, zIndex: 10, opacity: 0.8 },
+// Map document IDs to images
+const documentImages: Record<number, string> = {
+  0: invoiceImg,
+  1: licenseImg,
+  2: docImg,
 }
 
 type DocPosition = 'left' | 'center' | 'right'
@@ -49,7 +37,7 @@ const DocumentCarousel = () => {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  const positions = isMobile ? mobilePositions : desktopPositions
+  const positions = isMobile ? CAROUSEL_POSITIONS.mobile : CAROUSEL_POSITIONS.desktop
 
   useEffect(() => {
     if (isScanning && !isTransitioning) {
@@ -169,7 +157,7 @@ const DocumentCarousel = () => {
   return (
     <div className="relative w-full h-[350px] md:h-[550px] flex items-center justify-center">
       <div className="relative w-[300px] md:w-[600px] h-[280px] md:h-[450px] flex items-center justify-center">
-        {documents.map((doc, index) => {
+        {HERO_DOCUMENTS.map((doc, index) => {
           const posStyles = getPositionStyles(index)
           const currentPos = docPositions[index]
           const isCenter = currentPos === 'center' && !isTransitioning
@@ -202,7 +190,7 @@ const DocumentCarousel = () => {
             >
               <div className={`relative w-[150px] md:w-[250px] rounded-2xl ${doc.id === 0 ? 'bg-white' : 'bg-transparent'}`}>
                 <img
-                  src={doc.src}
+                  src={documentImages[doc.id]}
                   alt={doc.alt}
                   className={`w-full object-cover ${doc.id === 1 ? 'h-[375px]': 'h-auto'}`}
                 />

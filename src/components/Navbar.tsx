@@ -2,15 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import logo from '../assets/images/logo.png'
-
-const navLinks = [
-  { name: 'Home', path: '/', sectionId: 'home' },
-  { name: 'Industries', path: '/', sectionId: 'industries' },
-  { name: 'Products', path: '/', sectionId: 'products' },
-  { name: 'Blog', path: '/', sectionId: 'blog' },
-  { name: 'Contact Us', path: '/', sectionId: 'contact' },
-  { name: 'About Us', path: '/about', sectionId: null },
-]
+import { NAV_LINKS, NavLink } from '../constants'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -45,7 +37,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false)
   }, [location])
 
-  const handleNavClick = (link: typeof navLinks[0], e: React.MouseEvent) => {
+  const handleNavClick = (link: NavLink, e: React.MouseEvent) => {
     if (link.sectionId) {
       e.preventDefault()
       
@@ -69,7 +61,7 @@ const Navbar = () => {
     }
   }
 
-  const isActive = (link: typeof navLinks[0]) => {
+  const isActive = (link: NavLink) => {
     if (link.sectionId === null) {
       return location.pathname === link.path
     }
@@ -92,7 +84,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
@@ -156,7 +148,7 @@ const Navbar = () => {
               className="lg:hidden mt-4 bg-white rounded-xl shadow-xl overflow-hidden"
             >
               <div className="py-4 px-6 space-y-4">
-                {navLinks.map((link) => (
+                {NAV_LINKS.map((link) => (
                   <Link
                     key={link.name}
                     to={link.path}

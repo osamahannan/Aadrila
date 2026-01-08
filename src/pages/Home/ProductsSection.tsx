@@ -6,6 +6,20 @@ import circleLeft from '../../assets/images/circle-left.png'
 import productsImg from '../../assets/images/products.png'
 import workflowsImg from '../../assets/images/workflows.png'
 import validateImg from '../../assets/images/validate.png'
+import { PRODUCTS, SECTION_HEADERS } from '../../constants'
+
+// Map product IDs to images and circles
+const productImages: Record<string, string> = {
+  docsim: productsImg,
+  docpilot: workflowsImg,
+  doxtract: validateImg,
+}
+
+const productCircles: Record<string, string> = {
+  docsim: circleRight,
+  docpilot: circleLeft,
+  doxtract: circleRight,
+}
 
 // Animation states: 'idle' -> 'circle-in' -> 'content-in' -> 'visible' -> 'content-out' -> 'circle-out' -> 'idle'
 type AnimationState = 'idle' | 'circle-in' | 'content-in' | 'visible' | 'content-out' | 'circle-out'
@@ -301,86 +315,42 @@ const ProductsSection = () => {
             className="text-[18px] md:text-[24px] font-medium mb-3 md:mb-4 tracking-wide font-body bg-clip-text text-transparent"
             style={{ backgroundImage: 'linear-gradient(90deg, #CD6028 11%, #3E6EB4 100%)' }}
           >
-            features and benefits.
+            {SECTION_HEADERS.products.subtitle}
           </p>
           <h2 className="text-[32px] md:text-[48px] font-semibold text-[#141219]">
-            Our Products
+            {SECTION_HEADERS.products.title}
           </h2>
         </motion.div>
 
         <div className="relative flex flex-col gap-16 md:gap-24">
-
-          {/* Product 1 - DocSim */}
-          <ProductBlock
-            productName="DocSim"
-            title="AI-Powered Document Similarity Engine"
-            features={[
-              'Detects near-duplicates and tampered documents.',
-              'Identifies fraudulent patterns across large repositories.',
-              'Multi-language support for global adaptability.',
-            ]}
-            benefits={[
-              'Save 30% time on manual checks.',
-              'Reduce document fraud by up to 40%.',
-            ]}
-            buttonColor="#3E6EB4"
-            productImage={productsImg}
-            circleImage={circleRight}
-            imageOnRight={true}
-            dotGrid={
-              <div className="hidden lg:block absolute left-[-70px] top-[-220px]">
-                <DotGridV2 animation="left" delay={0.1} />
-              </div>
-            }
-          />
-
-          {/* Product 2 - DocPilot */}
-          <ProductBlock
-            productName="DocPilot"
-            title="Streamline Document Workflows with Automation"
-            features={[
-              'Automates document collection, routing, and task assignments.',
-              'Real-time tracking with advanced dashboards.',
-              'Seamless integration with enterprise systems via APIs.',
-            ]}
-            benefits={[
-              'Reduce turnaround times by 50%.',
-              'Improve operational efficiency with minimal manual effort.',
-            ]}
-            buttonColor="#3E6EB4"
-            productImage={workflowsImg}
-            circleImage={circleLeft}
-            imageOnRight={false}
-            dotGrid={
-              <div className="hidden lg:block absolute right-[100px] top-[-20px]">
-                <DotGridV1 animation="up" delay={0.2} />
-              </div>
-            }
-          />
-
-          {/* Product 3 - Doxtract */}
-          <ProductBlock
-            productName="Doxtract"
-            title="Extract, Validate, and Process Documents with Ease"
-            features={[
-              'OCR and NLP-based data extraction.',
-              'Handles unstructured documents across industries.',
-              'Validates fields using external data sources.',
-            ]}
-            benefits={[
-              'Process 10,000+ documents in minutes.',
-              'Achieve 99% data accuracy with AI-driven validation.',
-            ]}
-            buttonColor="#3E6EB4"
-            productImage={validateImg}
-            circleImage={circleRight}
-            imageOnRight={true}
-            dotGrid={
-              <div className="hidden lg:block absolute left-[90px] top-0 -z-10">
-                <DotGridV2 animation="up" delay={0.3} />
-              </div>
-            }
-          />
+          {PRODUCTS.map((product, index) => (
+            <ProductBlock
+              key={product.id}
+              productName={product.name}
+              title={product.title}
+              features={[...product.features]}
+              benefits={[...product.benefits]}
+              buttonColor={product.buttonColor}
+              productImage={productImages[product.id]}
+              circleImage={productCircles[product.id]}
+              imageOnRight={product.imageOnRight}
+              dotGrid={
+                index === 0 ? (
+                  <div className="hidden lg:block absolute left-[-70px] top-[-220px]">
+                    <DotGridV2 animation="left" delay={0.1} />
+                  </div>
+                ) : index === 1 ? (
+                  <div className="hidden lg:block absolute right-[100px] top-[-20px]">
+                    <DotGridV1 animation="up" delay={0.2} />
+                  </div>
+                ) : (
+                  <div className="hidden lg:block absolute left-[90px] top-0 -z-10">
+                    <DotGridV2 animation="up" delay={0.3} />
+                  </div>
+                )
+              }
+            />
+          ))}
         </div>
 
 
