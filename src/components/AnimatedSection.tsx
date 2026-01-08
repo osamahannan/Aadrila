@@ -10,9 +10,16 @@ interface AnimatedSectionProps {
   once?: boolean
 }
 
-const getVariants = (direction: string): Variants => {
+const getVariants = (direction: string, duration: number, delay: number): Variants => {
   const baseHidden = { opacity: 0 }
-  const baseVisible = { opacity: 1 }
+  const baseVisible = { 
+    opacity: 1,
+    transition: {
+      duration,
+      delay,
+      ease: [0.25, 0.1, 0.25, 1],
+    }
+  }
 
   switch (direction) {
     case 'up':
@@ -66,26 +73,14 @@ const AnimatedSection = ({
 
   useEffect(() => {
     if (isInView) {
-      controls.start('visible', {
-        transition: {
-          duration: duration,
-          delay: delay,
-          ease: [0.25, 0.1, 0.25, 1],
-        }
-      })
+      controls.start('visible')
       setHasAnimated(true)
     } else if (!once && hasAnimated) {
-      controls.start('hidden', {
-        transition: {
-          duration: 0.4,
-          delay: 0,
-          ease: [0.25, 0.1, 0.25, 1],
-        }
-      })
+      controls.start('hidden')
     }
-  }, [isInView, controls, once, hasAnimated, duration, delay])
+  }, [isInView, controls, once, hasAnimated])
 
-  const variants = getVariants(direction)
+  const variants = getVariants(direction, duration, delay)
 
   return (
     <motion.div

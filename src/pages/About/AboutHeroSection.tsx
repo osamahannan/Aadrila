@@ -15,7 +15,7 @@ const AboutHeroSection = () => {
         />
       </div>
 
-      <div className="mx-auto px-4 md:px-6 relative z-10">
+      <div className="mx-auto relative z-10">
         {/* Hero Title */}
         <AnimatedSection direction="down" className="text-center mb-12 md:mb-20">
           {/* Title Card */}
@@ -37,7 +37,7 @@ const AboutHeroSection = () => {
           {/* Vision Card - Left aligned, right side rounded - stack on mobile */}
           <AnimatedSection direction="left" delay={0.1}>
             <div className="flex justify-center lg:justify-start">
-              <div className="bg-white/60 w-full max-w-[500px] lg:max-w-none lg:min-w-[849px] backdrop-blur-sm rounded-2xl lg:rounded-r-full lg:rounded-l-none py-4 md:py-3 px-4 md:pl-8 md:pr-3 border border-gray-200/50 lg:border-l-0 shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex flex-col lg:flex-row justify-center lg:justify-end items-center gap-4 md:gap-6">
+              <div className="bg-white/60 lg:max-w-none lg:min-w-[849px] backdrop-blur-sm rounded-2xl lg:rounded-r-full lg:rounded-l-none py-4 md:py-3 px-4 md:pl-8 md:pr-3 border border-gray-200/50 lg:border-l-0 shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex flex-col lg:flex-row justify-center lg:justify-end items-center gap-4 md:gap-6">
                 <p className="text-[#1E1C26]/70 text-[13px] md:text-[14px] leading-relaxed max-w-sm text-center lg:text-right font-body order-3 lg:order-1">
                   To redefine document management with cutting-edge technology that
                   ensures accuracy, efficiency, and trust.
@@ -62,7 +62,7 @@ const AboutHeroSection = () => {
           {/* Mission Card - Right aligned, left side rounded - stack on mobile */}
           <AnimatedSection direction="right" delay={0.2}>
             <div className="flex justify-center lg:justify-end">
-              <div className="bg-white/60 w-full max-w-[500px] lg:max-w-none lg:min-w-[849px] backdrop-blur-sm rounded-2xl lg:rounded-l-full lg:rounded-r-none py-4 md:py-3 px-4 md:pr-8 md:pl-3 border border-gray-200/50 lg:border-r-0 shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex flex-col lg:flex-row justify-center lg:justify-start items-center gap-4 md:gap-6">
+              <div className="bg-white/60 lg:max-w-none lg:min-w-[849px] backdrop-blur-sm rounded-2xl lg:rounded-l-full lg:rounded-r-none py-4 md:py-3 px-4 md:pr-8 md:pl-3 border border-gray-200/50 lg:border-r-0 shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex flex-col lg:flex-row justify-center lg:justify-start items-center gap-4 md:gap-6">
                 {/* Rounded square (diamond) icon container */}
                 <div className="relative flex-shrink-0 order-1">
                   <div className="w-20 h-20 md:w-28 md:h-28 bg-[#3E6EB4] rounded-full flex items-center justify-center relative z-10 shadow-lg">
